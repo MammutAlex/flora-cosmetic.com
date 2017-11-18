@@ -53,20 +53,28 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>
+                <li class="{{isActiveRoute('index')}}">
                     <a href="/">Головна</a>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Категорії <i class="fa fa-angle-down"></i></a>
+                <li class="dropdown {{isActiveRoute('categories')}}">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        Категорії <i class="fa fa-angle-down"></i>
+                    </a>
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
-                            <li><a href="/categories/{{$category->url}}">{{$category->name}}</a></li>
+                            <li>
+                                <a href="/categories/{{$category->url}}">{{$category->name}}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </li>
-                <li>
+                <li class="{{areActiveRoutes(['products','product'])}}">
                     <a href="/products">Товари</a>
                 </li>
 
@@ -98,12 +106,14 @@
                         <li class="clearfix">
                             <div class="pull-left">
                                 <a href="/products/{{$product->id}}">
-                                    <img src="{{$product->photo}}" alt="{{$product->title}}" width="50" class="img-responsive">
+                                    <img src="{{$product->photo}}" alt="{{$product->title}}" width="50"
+                                         class="img-responsive">
                                 </a>
                             </div>
                             <div class="content">
                                 <h5><a href="/products/{{$product->id}}">{{$product->title}}</a></h5>
-                                <span><a href="/products/{{$product->id}}">{{substr($product->small_description,0,30)}} ...</a></span>
+                                <span><a href="/products/{{$product->id}}">{{substr($product->small_description,0,30)}}
+                                        ...</a></span>
                             </div>
                         </li>
                     @endforeach

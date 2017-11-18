@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'WebController@index');
-Route::get('/products', 'ProductController@index');
-Route::get('/products/{products}', 'ProductController@show');
-Route::get('/categories/{categories}', 'WebController@categories');
+Route::get('/', 'WebController@index')->name('index');
+Route::get('/products', 'ProductController@index')->name('products');
+Route::get('/products/{products}', 'ProductController@show')->name('product');
+Route::get('/categories/{categories}', 'WebController@categories')->name('categories');
 
 Auth::routes();
