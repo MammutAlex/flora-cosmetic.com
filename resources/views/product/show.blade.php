@@ -19,9 +19,47 @@
             <div class="col-sm-5">
                 <div class="item-description">
                     <h3>{{$active->title}}</h3>
-                    <span class="price text-primary">&#8372;{{$active->price}}</span>
+                    <span class="price text-primary">&#8372;{{$active->price_1}}</span>
                     <p>{{$active->description}}</p>
-                    <a href="#" class="btn btn-dark btn-xl btn-block">Купити</a>
+                    <hr>
+                    <form role="form" method="POST" action="{{ route('product',$active->id) }}">
+                        {{ csrf_field() }}
+                        @if (session('success'))
+                            <div class="testi-box">
+                                <p>
+                                    {{ session('success') }}
+                                </p>
+                            </div>
+                        @endif
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone">Телефон</label>
+                            <input type="text" name="phone" value="+380 " class="form-control" id="phone">
+                        </div>
+                        <div class="form-group{{ $errors->has('product') ? ' has-error' : '' }}">
+                            <label for="product">Пареметри</label>
+                            <select class="form-control" id="product" name="product">
+                                @if($active->price_1)
+                                    <option value="1" selected>{{$active->config_1}} -
+                                        &#8372;{{$active->price_1}}</option>
+                                @endif
+                                @if($active->price_2)
+                                    <option value="2">{{$active->config_2}} - &#8372;{{$active->price_2}}</option>
+                                @endif
+                                @if($active->price_3)
+                                    <option value="3">{{$active->config_3}} - &#8372;{{$active->price_3}}</option>
+                                @endif
+                                @if($active->price_4)
+                                    <option value="4">{{$active->config_4}} - &#8372;{{$active->price_4}}</option>
+                                @endif
+                                @if($active->price_5)
+                                    <option value="5">{{$active->config_5}} - &#8372;{{$active->price_5}}</option>
+                                @endif
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-xl btn-block">
+                            Купити
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -37,7 +75,7 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="product-box">
                         <div class="product-thumb">
-                            <img src="{{$active->photo}}" alt="" class="img-responsive">
+                            <img src="{{$product->photo}}" alt="" class="img-responsive">
                             <div class="product-overlay">
                                 <span>
                                     <a class="btn btn-default" href="/products/{{$product->id}}">View Detail</a>
@@ -56,6 +94,7 @@
 @endsection
 @section('script')
     <script src="/plugins/masterslider/masterslider.min.js"></script>
+    <script src="/plugins/jQuery-Mask-Plugin/dist/jquery.mask.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var slider = new MasterSlider();
@@ -76,6 +115,18 @@
                 height: 586,
                 space: 5
             });
+            var options = {
+                placeholder: '+380 __ ___-__-__',
+                'translation': {
+                    N: {pattern: /[0-9]/}
+                },
+                onKeyPress: function (cep) {
+                    if (cep.length <= 5 || cep === '+380 0') {
+                        $('#phone').val('+380 ');
+                    }
+                }
+            };
+            $('#phone').mask('+380 NN NNN-NN-NN', options);
         });
 
     </script>

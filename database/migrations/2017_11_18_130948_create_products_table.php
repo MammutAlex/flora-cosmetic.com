@@ -25,7 +25,17 @@ class CreateProductsTable extends Migration
             $table->text('small_description');
             $table->text('description');
 
-            $table->float('price');
+
+            $table->string('config_1');
+            $table->float('price_1');
+            $table->string('config_2');
+            $table->float('price_2');
+            $table->string('config_3');
+            $table->float('price_3');
+            $table->string('config_4');
+            $table->float('price_4');
+            $table->string('config_5');
+            $table->float('price_5');
 
             $table->integer('views');
             $table->boolean('show')->default(true);
