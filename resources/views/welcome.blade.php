@@ -1,6 +1,78 @@
 @extends('layouts.app')
 
 @section('content')
+    <!--start master slider-->
+    <div class="clearfix"></div>
+    <div class="slider-main" style="overflow: hidden;">
+        <!-- Master Slider -->
+        <div class="master-slider ms-skin-default" id="masterslider">
+        @foreach($slides as $slide)
+            @if($slide->type == 1)
+                <!-- slide 1 -->
+                    <div class="ms-slide slide-1" data-delay="8">
+                        <!-- slide background -->
+                        <img src="plugins/masterslider/style/blank.gif" data-src="{{$slide->photo}}"
+                             alt="{{$slide->title}}"/>
+                        <h3 class="ms-layer full-width title1 white-color text-center"
+                            style="left:0px;top: 180px;"
+                            data-type="text"
+                            data-effect="fade"
+                            data-duration="1800"
+                            data-delay="0">{{$slide->title}}</h3>
+                        <h5 class="ms-layer sub-title2 white-color full-width text-center"
+                            style="left:0px; top: 260px;"
+                            data-type="text"
+                            data-effect="fade"
+                            data-duration="1800"
+                            data-delay="0">{{$slide->text}}</h5>
+                    </div>
+                    <!-- end of slide -->
+            @elseif($slide->type == 2)
+                <!-- slide 2 -->
+                    <div class="ms-slide slide-2" data-delay="6">
+
+                        <!-- slide background -->
+                        <img src="plugins/masterslider/style/blank.gif" data-src="{{$slide->photo}}"
+                             alt="{{$slide->title}}"/>
+                        <h3 class="ms-layer full-width title1 text-center"
+                            style="left:0px;top: 90px;"
+                            data-type="text"
+                            data-delay="0"
+                            data-duration="1000"
+                            data-effect="fade">{{$slide->title}}</h3>
+                        <h5 class="ms-layer sub-title2 full-width text-center"
+                            style="left:0px; top: 160px;"
+                            data-type="text"
+                            data-effect="fade"
+                            data-duration="4500"
+                            data-delay="0">{{$slide->text}}</h5>
+                    </div>
+                    <!-- end of slide -->
+            @elseif($slide->type == 3)
+                <!-- slide 3 -->
+                    <div class="ms-slide slide-3" data-delay="8">
+                        <!-- slide background -->
+                        <img src="plugins/masterslider/style/blank.gif" data-src="{{$slide->photo}}"
+                             alt="{{$slide->title}}"/>
+                        <h3 class="ms-layer title1 text-left"
+                            style="left:15px;top: 190px;"
+                            data-type="text"
+                            data-effect="fade"
+                            data-duration="1800"
+                            data-delay="0">{{$slide->title}}</h3>
+                        <h5 class="ms-layer sub-title2 text-left"
+                            style="left:15px; top: 260px;"
+                            data-type="text"
+                            data-effect="fade"
+                            data-duration="1800"
+                            data-delay="0">{{$slide->text}}</h5>
+                    </div>
+                    <!-- end of slide -->
+                @endif
+            @endforeach
+        </div>
+    </div>
+    <!-- end Master Slider -->
     <div class="space-80"></div>
     <div class="container">
         <h3 class="text-uppercase font-400 title-font text-center margin-b-30">Останні товари</h3>
@@ -73,9 +145,9 @@
                     </div>
                 </div>
                 @if($index === 3)
-                    </div>
-                    <div class="row">
-                @endif
+        </div>
+        <div class="row">
+            @endif
             @endforeach
         </div>
         <div class="text-center margin-b-50">
@@ -102,4 +174,28 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="plugins/masterslider/masterslider.min.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+            var slider = new MasterSlider();
+            // adds Arrows navigation control to the slider.
+
+            slider.control('timebar', {insertTo: '#masterslider'});
+            slider.control('bullets');
+
+            slider.setup('masterslider', {
+                width: 1170, // slider standard width
+                height: 510, // slider standard height
+                space: 0,
+                layout: 'fullwidth',
+                loop: true,
+                preload: 0,
+                instantStartLayers: true,
+                autoplay: true
+            });
+        })(jQuery);
+    </script>
 @endsection

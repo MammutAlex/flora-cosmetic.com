@@ -25,7 +25,11 @@ return [
         'icon' => 'fa fa-info',
         'pages' => [
             (new Page(\App\Delivery::class))
-                ->setPriority(0)
+                ->setPriority(0),
+            (new Page(\App\Contact::class))
+                ->setPriority(100),
+            (new Page(\App\Slider::class))
+                ->setPriority(200)
         ]
     ],
 ];

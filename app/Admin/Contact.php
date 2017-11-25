@@ -8,13 +8,12 @@
 
 use SleepingOwl\Admin\Model\ModelConfiguration;
 
-AdminSection::registerModel(\App\Delivery::class, function (ModelConfiguration $model) {
-    $model->setTitle('Доставка та оплата');
+AdminSection::registerModel(\App\Contact::class, function (ModelConfiguration $model) {
+    $model->setTitle('Контактні дані');
     // Display
     $model->onDisplay(function () {
         $display = AdminDisplay::table();
         $display->setColumns([
-            AdminColumn::text('title')->setLabel('Назва'),
             AdminColumn::text('text')->setLabel('Текст')
         ]);
         return $display;
@@ -22,7 +21,6 @@ AdminSection::registerModel(\App\Delivery::class, function (ModelConfiguration $
     // Create And Edit
     $model->onCreateAndEdit(function () {
         $form = AdminForm::panel()->addBody(
-            AdminFormElement::text('name', 'Назва')->required(),
             AdminFormElement::wysiwyg('text', 'Текст')->required()
         );
         return $form;
