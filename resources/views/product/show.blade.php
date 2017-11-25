@@ -12,7 +12,15 @@
                             <img src="/plugins/masterslider/style/blank.gif" data-src="{{$active->photo}}"
                                  alt="{{$active->title}}"/>
                             <img class="ms-thumb" src="{{$active->photo}}" alt="thumb"/>
-                        </div><!--end slide-->
+                        </div>
+                        @foreach($active->images as $image)
+                            <div class="ms-slide">
+                                <img src="/{{$image}}"
+                                     data-src="/{{$image}}"
+                                     alt="{{$active->title}}">
+                                <img class="ms-thumb" src="/{{$image}}" alt="thumb"/>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -20,7 +28,7 @@
                 <div class="item-description">
                     <h3>{{$active->title}}</h3>
                     <span class="price text-primary">&#8372;{{$active->price_1}}</span>
-                    <p>{{$active->description}}</p>
+                    <p>{!! $active->description !!}</p>
                     <hr>
                     <form role="form" id="buy-form" method="POST" action="{{ route('product',$active->id) }}">
                         {{ csrf_field() }}
@@ -87,7 +95,7 @@
                             </div>
                         </div><!--/product-thumb-->
                         <div class="product-desc">
-                            <span class="product-price pull-right">&#8372;{{$product->price}}</span>
+                            <span class="product-price pull-right">&#8372;{{$product->price_1}}</span>
                             <h5 class="product-name"><a href="/products/{{$product->id}}">{{$product->title}}</a></h5>
                         </div><!--/product-desc-->
                     </div>

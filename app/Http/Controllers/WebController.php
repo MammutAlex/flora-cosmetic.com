@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\SubCategory;
 use Illuminate\Http\Request;
 
 class WebController extends BaseController
@@ -15,12 +16,17 @@ class WebController extends BaseController
         ]);
     }
 
-    public function categories($id)
+    public function categories($categories, $subcategories = null)
     {
-        $category = Category::where('url', $id)->firstOrFail();
-        $products = $category->products()->paginate(6);
+        $category = Category::where('url', $categories)->firstOrFail();
+        if ($subcategories === null) {
+            $products = $category->products()->paginate(6);
+        } else {
+            $products = $category->subcategories()->where('url', $subcategories)->firstOrFail()->products()->paginate(6);
+        }
         return view('categories', [
             'category' => $category,
+            'activeSubcategory' => $subcategories,
             'products' => $products,
         ]);
     }

@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Product::class, function (Faker $faker) {
     return [
-        'category_id' => \App\Category::inRandomOrder()->first()->id,
+        'sub_category_id' => \App\SubCategory::inRandomOrder()->first()->id,
         'title' => $faker->company(),
         'photo' => '/images/products/p' . $faker->numberBetween($min = 1, $max = 9) . '.jpg',
         'small_description' => $faker->text($maxNbChars = 200),

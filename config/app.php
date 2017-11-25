@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Application Service Providers...

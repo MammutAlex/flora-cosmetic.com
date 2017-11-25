@@ -15,7 +15,7 @@ class ProductController extends BaseController
 
     public function show(Product $products)
     {
-        $moreProducts = Product::where('category_id', $products->category_id)->inRandomOrder()->take(4)->get();
+        $moreProducts = Product::where('sub_category_id', $products->sub_category_id)->inRandomOrder()->take(4)->get();
         return view('product.show', [
             'active' => $products,
             'products' => $moreProducts,

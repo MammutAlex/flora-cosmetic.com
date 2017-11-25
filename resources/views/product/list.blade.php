@@ -37,7 +37,7 @@
                                 </div><!--/thumb-->
                                 <div class="media-body">
                                     <h3><a href="/products/{{$product->id}}">{{$product->title}}</a></h3>
-                                    <h1>&#8372;{{$product->price}}</h1>
+                                    <h1>&#8372;{{$product->price_1}}</h1>
                                     <p>{{$product->small_description}}</p>
                                     <a href="/products/{{$product->id}}" class="btn btn-default">View Detail</a>
                                 </div>

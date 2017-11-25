@@ -81,7 +81,9 @@
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
                             <li>
-                                <a href="/categories/{{$category->url}}">{{$category->name}}</a>
+                                <a href="/categories/{{$category->url}}">
+                                    {{$category->name}}
+                                </a>
                             </li>
                         @endforeach
                     </ul>

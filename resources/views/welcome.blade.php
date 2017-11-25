@@ -67,7 +67,7 @@
                             </div>
                         </div><!--/product-thumb-->
                         <div class="product-desc">
-                            <span class="product-price pull-right">&#8372;{{$product->price}}</span>
+                            <span class="product-price pull-right">&#8372;{{$product->price_1}}</span>
                             <h5 class="product-name"><a href="/products/{{$product->id}}">{{$product->title}}</a></h5>
                         </div><!--/product-desc-->
                     </div>

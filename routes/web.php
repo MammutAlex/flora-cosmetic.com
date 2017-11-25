@@ -15,6 +15,6 @@ Route::get('/', 'WebController@index')->name('index');
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/products/{products}', 'ProductController@show')->name('product');
 Route::post('/products/{products}', 'BasketController@buy')->name('product');
-Route::get('/categories/{categories}', 'WebController@categories')->name('categories');
+Route::get('/categories/{categories}/{subcategories?}', 'WebController@categories')->name('categories');
 
 Auth::routes();
