@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Contact;
+use App\Delivery;
 use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
@@ -28,6 +30,20 @@ class WebController extends BaseController
             'category' => $category,
             'activeSubcategory' => $subcategories,
             'products' => $products,
+        ]);
+    }
+
+    public function delivery()
+    {
+        return view('delivery', [
+            'deliveries' => Delivery::get()
+        ]);
+    }
+
+    public function contacts()
+    {
+        return view('contacts', [
+            'contacts' => Contact::get()
         ]);
     }
 }

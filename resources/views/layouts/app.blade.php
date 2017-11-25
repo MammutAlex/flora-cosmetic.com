@@ -68,28 +68,17 @@
                 <li class="{{isActiveRoute('index')}}">
                     <a href="/">Головна</a>
                 </li>
-
-                <li class="dropdown {{isActiveRoute('categories')}}">
-                    <a href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       role="button"
-                       aria-haspopup="true"
-                       aria-expanded="false">
-                        Категорії <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        @foreach($categories as $category)
-                            <li>
-                                <a href="/categories/{{$category->url}}">
-                                    {{$category->name}}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
                 <li class="{{areActiveRoutes(['products','product'])}}">
                     <a href="/products">Товари</a>
+                </li>
+                <li>
+                    <a href="/tests">Визначення типу шкіри</a>
+                </li>
+                <li class="{{areActiveRoutes(['products','product'])}}">
+                    <a href="/payments-and-deliveries">Доставка і оплата</a>
+                </li>
+                <li class="{{areActiveRoutes(['products','product'])}}">
+                    <a href="/contacts">Контакти</a>
                 </li>
 
             </ul>
@@ -108,7 +97,8 @@
                     <li class="clearfix">
                         <div class="cart-thumb">
                             <a href="/products/{{$buy->product->id}}">
-                                <img src="{{$buy->product->photo}}" alt="{{$buy->product->title}}" class="img-responsive" width="60">
+                                <img src="{{$buy->product->photo}}" alt="{{$buy->product->title}}"
+                                     class="img-responsive" width="60">
                             </a>
                         </div>
                         <div class="cart-content">

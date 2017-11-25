@@ -20,4 +20,12 @@ return [
                 ->setPriority(100)
         ]
     ],
+    [
+        'title' => 'Інформація',
+        'icon' => 'fa fa-info',
+        'pages' => [
+            (new Page(\App\Delivery::class))
+                ->setPriority(0)
+        ]
+    ],
 ];
