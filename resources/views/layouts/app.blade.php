@@ -41,6 +41,18 @@
 <!-- Static navbar -->
 <nav class="navbar navbar-default navbar-static-top yamm sticky-header">
     <div class="container">
+        <div class="pull-right">
+            <ul class="right-icon-nav nav navbar-nav list-inline">
+                <li class="cart-nav">
+                    <a href="javascript:void(0)" data-toggle="offcanvas" data-target="#cartNavmenu" data-canvas="body">
+                        <i class="material-icons">shopping_cart</i>
+                        @if(isset($basketList))
+                            <span class="label label-primary">{{$basketList->buys()->count()}}</span>
+                        @endif
+                    </a>
+                </li>
+            </ul>
+        </div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
@@ -83,6 +95,39 @@
     </div><!--/.container-fluid -->
 </nav>
 
+<aside id="cartNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas">
+
+    <div class="cart-inner">
+        <h4>Корзина @if(isset($basketList))({{$basketList->buys()->count()}})@endif</h4>
+        <hr>
+        @if(isset($basketList))
+            <ul class="list-unstyled cart-list margin-b-30">
+                @foreach($basketList->buys as $buy)
+                    <li class="clearfix">
+                        <div class="cart-thumb">
+                            <a href="/products/{{$buy->product->id}}">
+                                <img src="{{$buy->product->photo}}" alt="{{$buy->product->title}}" class="img-responsive" width="60">
+                            </a>
+                        </div>
+                        <div class="cart-content">
+                            <span class="close"><i class="fa fa-times"></i></span>
+                            <h5><a href="/products/{{$buy->product->id}}">{{$buy->product->title}}</a></h5>
+                            <p><span class="price">&#8372;{{$buy->price}}</span></p>
+                        </div>
+                    </li>
+                @endforeach
+                <li>
+                    <div class="text-center">
+                        <a href="checkout.html" class="btn btn-default">Checkout</a>
+                        <a href="cart.html" class="btn btn-primary">View Cart</a>
+                    </div>
+                </li>
+            </ul>
+        @else
+            Ви ще нічого не добавили у корзину
+        @endif
+    </div>
+</aside>
 <!--===========================End Header===========================-->
 @yield('content')
 <footer class="footer">
