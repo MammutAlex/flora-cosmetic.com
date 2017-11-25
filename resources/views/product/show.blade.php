@@ -22,8 +22,9 @@
                     <span class="price text-primary">&#8372;{{$active->price_1}}</span>
                     <p>{{$active->description}}</p>
                     <hr>
-                    <form role="form" method="POST" action="{{ route('product',$active->id) }}">
+                    <form role="form" id="buy-form" method="POST" action="{{ route('product',$active->id) }}">
                         {{ csrf_field() }}
+                        <input name="type" id="type" value="buy" type="hidden">
                         @if (session('success'))
                             <div class="testi-box">
                                 <p>
@@ -57,7 +58,10 @@
                             </select>
                         </div>
                         <button type="submit" class="btn btn-dark btn-xl btn-block">
-                            Купити
+                            Купити в один клік
+                        </button>
+                        <button type="button" class="btn btn-default btn-xl btn-block" id="addToBasket">
+                            Добавити в корзину
                         </button>
                     </form>
                 </div>
@@ -127,6 +131,10 @@
                 }
             };
             $('#phone').mask('+380 NN NNN-NN-NN', options);
+            $('#addToBasket').click(function () {
+                $('#type').val('changed Value');
+                $('#buy-form').submit();
+            })
         });
 
     </script>

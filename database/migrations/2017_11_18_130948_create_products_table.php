@@ -28,16 +28,16 @@ class CreateProductsTable extends Migration
 
             $table->string('config_1');
             $table->float('price_1');
-            $table->string('config_2');
-            $table->float('price_2');
-            $table->string('config_3');
-            $table->float('price_3');
-            $table->string('config_4');
-            $table->float('price_4');
-            $table->string('config_5');
-            $table->float('price_5');
+            $table->string('config_2')->nullable();
+            $table->float('price_2')->nullable();
+            $table->string('config_3')->nullable();
+            $table->float('price_3')->nullable();
+            $table->string('config_4')->nullable();
+            $table->float('price_4')->nullable();
+            $table->string('config_5')->nullable();
+            $table->float('price_5')->nullable();
 
-            $table->integer('views');
+            $table->integer('views')->default(1);
             $table->boolean('show')->default(true);
             $table->timestamps();
         });
