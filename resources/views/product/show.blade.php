@@ -44,9 +44,9 @@
                             <label for="phone">Телефон</label>
                             <input type="text" name="phone" value="+380 " class="form-control" id="phone">
                         </div>
-                        <div class="form-group{{ $errors->has('product') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('config') ? ' has-error' : '' }}">
                             <label for="product">Пареметри</label>
-                            <select class="form-control" id="product" name="product">
+                            <select class="form-control" id="product" name="config">
                                 @if($active->price_1)
                                     <option value="1" selected>{{$active->config_1}} -
                                         &#8372;{{$active->price_1}}</option>

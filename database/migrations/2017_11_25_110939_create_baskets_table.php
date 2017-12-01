@@ -18,6 +18,7 @@ class CreateBasketsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('name')->nullable();
             $table->text('comment')->nullable();
+            $table->dateTime('send')->nullable();
             $table->timestamps();
         });
     }

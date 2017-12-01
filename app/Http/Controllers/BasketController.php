@@ -9,56 +9,68 @@ use Illuminate\Http\Request;
 
 class BasketController extends WebController
 {
+    private const BUY_NOW = 'buy';
+
+    public function cart()
+    {
+        return view('cart', ['basket' => $this->getBasket()]);
+    }
+
     public function buy(Product $products, Request $request)
     {
         $this->validate($request, [
             'type' => 'required|string',
-            'product' => 'required|numeric|min:1|max:5',
+            'config' => 'required|numeric|min:1|max:5',
         ]);
 
-        $price_type = 'price_' . $request->product;
-        $config_type = 'config_' . $request->product;
-        if ($request->type === 'buy') {
-            return $this->buyNow($products, $request, $price_type, $config_type);
+        if ($request->type === self::BUY_NOW) {
+            return $this->buyNow($products, $request);
         }
-        return $this->addToBasket($products, $request, $price_type, $config_type);
+        return $this->addToBasket($products, $request);
 
     }
 
-    private function buyNow(Product $products, Request $request, $price_type, $config_type)
+    private function buyNow(Product $products, Request $request)
     {
         $this->validate($request, [
             'phone' => 'required|string|min:17|max:17',
         ]);
         $basket = Basket::create([
             'phone' => $request->phone,
+            'send' => new \DateTime(),
         ]);
         Buy::create([
             'basket_id' => $basket->id,
             'product_id' => $products->id,
-            'price' => $products->$price_type,
-            'config' => $products->$config_type,
+            'config_id' => $request->config,
         ]);
         return redirect()->back()->with('success', 'Ваше замовлення прийнято, ми зателефонуємо вам');
     }
 
-    private function addToBasket(Product $products, Request $request, $price_type, $config_type)
+    private function addToBasket(Product $products, Request $request)
     {
-        $basket = null;
-        if (session()->has('basket')) {
-            $basket = Basket::find(session('basket'));
-        }
-        if ($basket === null) {
-            $basket = Basket::create();
-        }
-        Buy::create([
+        $basket = $this->getBasket();
+
+        $buy = Buy::firstOrCreate([
             'basket_id' => $basket->id,
             'product_id' => $products->id,
-            'price' => $products->$price_type,
-            'config' => $products->$config_type,
+            'config_id' => $request->config,
+        ]);
+        $buy->update([
+            'amount' => $buy->amount + 1
         ]);
         session(['basket' => $basket->id]);
+
         return redirect()->back()->with('success', 'Товар добавлений в корзину');
+    }
+
+    private function getBasket()
+    {
+        if (session()->has('basket')) {
+            return Basket::find(session('basket'));
+        }
+        return Basket::create();
+
     }
 
 }

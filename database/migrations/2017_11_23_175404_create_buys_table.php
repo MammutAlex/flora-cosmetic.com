@@ -17,8 +17,8 @@ class CreateBuysTable extends Migration
             $table->increments('id');
             $table->integer('product_id');
             $table->integer('basket_id');
-            $table->float('price');
-            $table->string('config');
+            $table->integer('config_id');
+            $table->integer('amount')->default(0);
             $table->timestamps();
         });
     }

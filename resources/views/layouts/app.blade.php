@@ -102,16 +102,22 @@
                             </a>
                         </div>
                         <div class="cart-content">
-                            <span class="close"><i class="fa fa-times"></i></span>
-                            <h5><a href="/products/{{$buy->product->id}}">{{$buy->product->title}}</a></h5>
-                            <p><span class="price">&#8372;{{$buy->price}}</span></p>
+                            <h5>
+                                <a href="/products/{{$product->product->id}}">
+                                    {{$product->product->title}}<br>
+                                    {{$product->product['config_'.$product->config_id]}}
+                                </a>
+                            </h5>
+                            <p>
+                                <span class="price">&#8372;{{$buy->product['price_'.$buy->config_id]}}</span>
+                                x {{$buy->amount}}
+                            </p>
                         </div>
                     </li>
                 @endforeach
                 <li>
                     <div class="text-center">
-                        <a href="checkout.html" class="btn btn-default">Checkout</a>
-                        <a href="cart.html" class="btn btn-primary">View Cart</a>
+                        <a href="{{route('cart')}}" class="btn btn-primary">Оформити замовлення</a>
                     </div>
                 </li>
             </ul>
