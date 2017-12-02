@@ -13,7 +13,7 @@ class BaseController extends Controller
     public function __construct()
     {
         View::share('categories', Category::get());
-        View::share('lastProducts', Product::orderBy('created_at')->take(3)->get());
+        View::share('lastProducts', Product::orderBy('updated_at', 'desc')->take(3)->get());
         $this->middleware(function ($request, $next) {
             if (session()->has('basket')) {
                 View::share('basketList', Basket::find(session('basket')));

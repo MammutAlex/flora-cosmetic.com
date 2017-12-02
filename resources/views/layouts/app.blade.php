@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') Флора косметика</title>
 
     <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -66,19 +66,19 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="{{isActiveRoute('index')}}">
-                    <a href="/">Головна</a>
+                    <a href="{{route('index')}}">Главная</a>
                 </li>
                 <li class="{{areActiveRoutes(['products','product'])}}">
-                    <a href="/products">Товари</a>
+                    <a href="{{route('products')}}">Каталог товаров</a>
                 </li>
-                <li>
-                    <a href="/tests">Визначення типу шкіри</a>
+                <li class="{{areActiveRoutes(['test'])}}">
+                    <a href="{{route('test')}}">Определение типа кожи</a>
                 </li>
-                <li class="{{areActiveRoutes(['products','product'])}}">
-                    <a href="/payments-and-deliveries">Доставка і оплата</a>
+                <li class="{{areActiveRoutes(['delivery'])}}">
+                    <a href="{{route('delivery')}}">Доставка и оплата</a>
                 </li>
-                <li class="{{areActiveRoutes(['products','product'])}}">
-                    <a href="/contacts">Контакти</a>
+                <li class="{{areActiveRoutes(['contacts'])}}">
+                    <a href="{{route('contacts')}}">Контакты</a>
                 </li>
 
             </ul>
@@ -117,12 +117,12 @@
                 @endforeach
                 <li>
                     <div class="text-center">
-                        <a href="{{route('cart')}}" class="btn btn-primary">Оформити замовлення</a>
+                        <a href="{{route('cart')}}" class="btn btn-primary">Оформить заказ</a>
                     </div>
                 </li>
             </ul>
         @else
-            Ви ще нічого не добавили у корзину
+            Корзина пустая
         @endif
     </div>
 </aside>
@@ -132,7 +132,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 margin-b-30">
-                <h4>Про нас</h4>
+                <h4>О нас</h4>
                 <p>
                     Косметика изготавливается индивидуально для Вашей кожи, из натуральных ингредиентов, которые дают заметный результат без привыкания! 
                     Попробуйте, что б убедиться самим
@@ -142,7 +142,7 @@
                 </ul>
             </div><!--/col-->
             <div class="col-md-3 margin-b-30">
-                <h4>Останні товари</h4>
+                <h4>Последние товары</h4>
                 <ul class="list-unstyled latest-news">
                     @foreach($lastProducts as $product)
                         <li class="clearfix">
@@ -162,24 +162,38 @@
                 </ul>
             </div><!--/col-->
             <div class="col-md-3 margin-b-30">
-                <h4>Сторінки</h4>
+                <h4>Страницы</h4>
                 <ul class="list-unstyled link-list">
-                    <li><a href="/">Головна</a></li>
-                    <li><a href="/products">Товари</a></li>
+                    <li class="{{isActiveRoute('index')}}">
+                        <a href="{{route('index')}}">Главная</a>
+                    </li>
+                    <li class="{{areActiveRoutes(['products','product'])}}">
+                        <a href="{{route('products')}}">Каталог товаров</a>
+                    </li>
+                    <li class="{{areActiveRoutes(['test'])}}">
+                        <a href="{{route('test')}}">Определение типа кожи</a>
+                    </li>
+                    <li class="{{areActiveRoutes(['delivery'])}}">
+                        <a href="{{route('delivery')}}">Доставка и оплата</a>
+                    </li>
+                    <li class="{{areActiveRoutes(['contacts'])}}">
+                        <a href="{{route('contacts')}}">Контакты</a>
+                    </li>
                 </ul>
             </div><!--/col-->
             <div class="col-md-3 margin-b-30">
                 <h4>Контакти</h4>
                 <p class="lead">
-                    <br>1800 443-5493
+                    <br>+380 66 524-69-02
+                    <br>+380 96 019-27-57
                 </p>
-                <p class="lead">support@boland.com</p>
+                <p class="lead">info@flora-cosmetic.com</p>
             </div>
         </div>
     </div>
     <hr>
     <div class="container text-center">
-        <span>&copy; Copyright 2017. All Right Reserved. By <a href="https://alex-kovalchuk.site/" target="_blank">mammut</a></span>
+        <span>&copy; Copyright 2017. All Right Reserved. By <a href="https://alex-kovalchuk.site" target="_blank">mammut</a></span>
     </div>
 </footer>
 <!--/footer-->

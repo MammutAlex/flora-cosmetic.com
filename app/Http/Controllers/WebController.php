@@ -6,6 +6,7 @@ use App\Category;
 use App\Contact;
 use App\Delivery;
 use App\Product;
+use App\Review;
 use App\Slider;
 use App\SubCategory;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class WebController extends BaseController
     {
         return view('welcome', [
             'products' => Product::inRandomOrder()->take(8)->get(),
+            'reviews' => Review::get(),
             'slides' => Slider::get(),
         ]);
     }
