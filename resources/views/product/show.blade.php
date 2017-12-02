@@ -9,9 +9,9 @@
                 <div class="ms-showcase2-template ms-showcase2-vertical">
                     <div class="master-slider ms-skin-default" id="masterslider">
                         <div class="ms-slide">
-                            <img src="/plugins/masterslider/style/blank.gif" data-src="{{$active->photo}}"
+                            <img src="/plugins/masterslider/style/blank.gif" data-src="/{{$active->photo}}"
                                  alt="{{$active->title}}"/>
-                            <img class="ms-thumb" src="{{$active->photo}}" alt="thumb"/>
+                            <img class="ms-thumb" src="/{{$active->photo}}" alt="thumb"/>
                         </div>
                         @foreach($active->images as $image)
                             <div class="ms-slide">
@@ -87,7 +87,7 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="product-box">
                         <div class="product-thumb">
-                            <img src="{{$product->photo}}" alt="" class="img-responsive">
+                            <img src="/{{$product->photo}}" alt="" class="img-responsive">
                             <div class="product-overlay">
                                 <span>
                                     <a class="btn btn-default" href="/products/{{$product->id}}">View Detail</a>
