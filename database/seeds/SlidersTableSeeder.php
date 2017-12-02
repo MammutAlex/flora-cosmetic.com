@@ -12,20 +12,20 @@ class SlidersTableSeeder extends Seeder
     public function run()
     {
         \App\Slider::create([
-            'title' => 'Womens bag collection',
-            'text' => 'New and fresh bags collection with 40% OFF',
-            'photo' => '/images/slide1.jpg',
+            'title' => 'Флора — натуральная косметика',
+            'text' => 'Косметика изготавливается индивидуально для Вашей кожи, из натуральных ингредиентов, которые дают заметный результат без привыкания!  Попробуйте, что б убедиться самим',
+            'photo' => 'images/slide1.png',
             'type' => 1,
         ]);
         \App\Slider::create([
-            'title' => 'New wall clock collection',
-            'text' => 'New and fresh wall collection with 40% OFF',
-            'photo' => '/images/slide2.jpg',
+            'title' => 'Флора — косметика ручной работы',
+            'text' => 'Косметика изготавливается индивидуально для Вашей кожи, из натуральных ингредиентов, которые дают заметный результат без привыкания! Попробуйте, что б убедиться самим',
+            'photo' => 'images/slide2.png',
             'type' => 2,
         ]);
         \App\Slider::create([
-            'title' => 'Flat 50% off on lamp',
-            'text' => 'The best lamp collection on lowest price',
+            'title' => 'Ощути прикосновение природы...',
+            'text' => 'Косметика изготавливается индивидуально для Вашей кожи, из натуральных ингредиентов, которые дают заметный результат без привыкания! Попробуйте, что б убедиться самим',
             'photo' => 'images/slide3.jpg',
             'type' => 3,
         ]);
