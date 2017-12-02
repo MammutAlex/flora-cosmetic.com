@@ -61,7 +61,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="/images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="/"><img src="/images/logo1.png" alt=""></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -134,12 +134,11 @@
             <div class="col-md-3 margin-b-30">
                 <h4>Про нас</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                    laoreet dolore magna aliquam erat volutpat.
+                    Косметика изготавливается индивидуально для Вашей кожи, из натуральных ингредиентов, которые дают заметный результат без привыкания! 
+                    Попробуйте, что б убедиться самим
                 </p>
                 <ul class="list-inline socials">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/flora.naturalcosm"><i class="fa fa-facebook"></i></a></li>
                 </ul>
             </div><!--/col-->
             <div class="col-md-3 margin-b-30">
