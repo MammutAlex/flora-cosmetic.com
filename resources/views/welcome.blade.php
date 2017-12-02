@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title','Главная')
 @section('content')
     <!--start master slider-->
     <div class="clearfix"></div>
@@ -75,7 +76,7 @@
     <!-- end Master Slider -->
     <div class="space-80"></div>
     <div class="container">
-        <h3 class="text-uppercase font-400 title-font text-center margin-b-30">Останні товари</h3>
+        <h3 class="text-uppercase font-400 title-font text-center margin-b-30">Новинки</h3>
         <div class="row">
             @foreach($lastProducts as $product)
                 <div class="col-sm-4 margin-b-30">
@@ -91,7 +92,7 @@
     </div>
     <div class="space-50"></div>
     <div class="container">
-        <h3 class="text-uppercase font-400 title-font text-center margin-b-30">Категорії</h3>
+        <h3 class="text-uppercase font-400 title-font text-center margin-b-30">Категории</h3>
         <div class="product-slider owl-carousel owl-theme">
             @foreach($categories as $category)
                 <div class="item">

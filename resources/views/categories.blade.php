@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title',$category->name)
 @section('content')
     <!--page header-->
     <div class="page-breadcrumb margin-b-60">
@@ -14,14 +15,14 @@
         <div class="row">
             <div class="col-sm-3 filter-row">
                 <div class="sidebar-widget margin-b-40">
-                    <h4>Категорії</h4>
+                    <h4>Категории</h4>
                     <ul class="list-unstyled">
 
                         <li class="clearfix">
                             <span class="pull-right">({{$category->products()->count()}})</span>
                             <a @if($activeSubcategory=== null)style="color: #26bbad" @endif
                             href="/categories/{{$category->url}}">
-                                Усі
+                                Все
                             </a>
                         </li>
                         @foreach($category->subcategories as $subcategory)
@@ -43,14 +44,14 @@
                             <div class="media shop-list-media">
                                 <div class="media-left">
                                     <a href="/products/{{$product->id}}">
-                                        <img src="{{$product->photo}}" alt="{{$product->title}}" class="img-responsive">
+                                        <img src="/{{$product->photo}}" alt="{{$product->title}}" class="img-responsive">
                                     </a>
                                 </div><!--/thumb-->
                                 <div class="media-body">
                                     <h3><a href="/products/{{$product->id}}">{{$product->title}}</a></h3>
                                     <h1>&#8372;{{$product->price_1}}</h1>
                                     <p>{!!$product->small_description!!}</p>
-                                    <a href="/products/{{$product->id}}" class="btn btn-default">View Detail</a>
+                                    <a href="/products/{{$product->id}}" class="btn btn-default">Посмотреть подробнее</a>
                                 </div>
                             </div>
                             <hr>

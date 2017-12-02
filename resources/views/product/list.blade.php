@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
+@section('title','Каталог товаров')
 @section('content')
     <!--page header-->
     <div class="page-breadcrumb margin-b-60">
         <div class="container">
-            <h4>Shop List</h4>
+            <h4>Каталог товаров</h4>
         </div>
     </div>
     <!--page header-->
@@ -14,7 +15,7 @@
         <div class="row">
             <div class="col-sm-3 filter-row">
                 <div class="sidebar-widget margin-b-40">
-                    <h4>Категорії</h4>
+                    <h4>Категории</h4>
                     <ul class="list-unstyled">
                         @foreach($categories as $category)
                             <li class="clearfix">
@@ -39,7 +40,7 @@
                                     <h3><a href="/products/{{$product->id}}">{{$product->title}}</a></h3>
                                     <h1>&#8372;{{$product->price_1}}</h1>
                                     <p>{{$product->small_description}}</p>
-                                    <a href="/products/{{$product->id}}" class="btn btn-default">View Detail</a>
+                                    <a href="/products/{{$product->id}}" class="btn btn-default">Посмотреть подробнее</a>
                                 </div>
                             </div>
                             <hr>

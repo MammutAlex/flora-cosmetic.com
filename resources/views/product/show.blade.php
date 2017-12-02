@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title',$active->title)
 @section('content')
     <div class="space-60"></div>
     <div class="container">
@@ -45,7 +46,7 @@
                             <input type="text" name="phone" value="+380 " class="form-control" id="phone">
                         </div>
                         <div class="form-group{{ $errors->has('config') ? ' has-error' : '' }}">
-                            <label for="product">Пареметри</label>
+                            <label for="product">Параметры</label>
                             <select class="form-control" id="product" name="config">
                                 @if($active->price_1)
                                     <option value="1" selected>{{$active->config_1}} -
@@ -66,10 +67,10 @@
                             </select>
                         </div>
                         <button type="submit" class="btn btn-dark btn-xl btn-block">
-                            Купити в один клік
+                            Купить в один клик
                         </button>
                         <button type="button" class="btn btn-default btn-xl btn-block" id="addToBasket">
-                            Добавити в корзину
+                            Добавить в корзину
                         </button>
                     </form>
                 </div>
@@ -81,7 +82,7 @@
 
     <div class="space-60"></div>
     <div class="container">
-        <h4 class="margin-b-20">Схожі товари</h4>
+        <h4 class="margin-b-20">Похожие товары</h4>
         <div class="row">
             @foreach($products as $product)
                 <div class="col-sm-6 col-md-3">
@@ -90,7 +91,7 @@
                             <img src="/{{$product->photo}}" alt="" class="img-responsive">
                             <div class="product-overlay">
                                 <span>
-                                    <a class="btn btn-default" href="/products/{{$product->id}}">View Detail</a>
+                                    <a class="btn btn-default" href="/products/{{$product->id}}">Посмотреть подробнее</a>
                                 </span>
                             </div>
                         </div><!--/product-thumb-->

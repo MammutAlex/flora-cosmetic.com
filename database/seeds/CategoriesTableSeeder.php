@@ -14,12 +14,12 @@ class CategoriesTableSeeder extends Seeder
     {
         Category::query()->truncate();
         Category::create([
-            'name' => 'Косметика для лица и области шеи',
+            'name' => 'Косметика для лица',
             'photo' => '/images/categories/Категория_ косметика для лица2.png',
             'url' => 'kosmetika-dlya-litsa-i-oblasti-shei',
         ]);
         Category::create([
-            'name' => 'Уход и очищение кожи лица',
+            'name' => 'Уход и очищение кожи',
             'photo' => '/images/categories/Категория_уход_и_очищение3.png',
             'url' => 'uhod-i-ochischenie-kozhi-litsa',
         ]);

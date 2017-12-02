@@ -192,7 +192,7 @@ button:focus, input [type="submit"]:focus {
 
 /**page bradcrumb**/
 .page-breadcrumb {
-  background: url(../images/bg1.jpg) no-repeat;
+  background: url(../images/bg1.png) no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: 0 50%;
