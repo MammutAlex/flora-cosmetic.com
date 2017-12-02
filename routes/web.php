@@ -16,6 +16,7 @@ Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/products/{products}', 'ProductController@show')->name('product');
 Route::post('/products/{products}', 'BasketController@buy')->name('product');
 Route::get('/tests', 'TestController@index')->name('test');
+Route::post('/tests', 'TestController@check')->name('test');
 Route::get('/payments-and-deliveries', 'WebController@delivery')->name('delivery');
 Route::get('/contacts', 'WebController@contacts')->name('contacts');
 Route::get('/categories/{categories}/{subcategories?}', 'WebController@categories')->name('categories');
