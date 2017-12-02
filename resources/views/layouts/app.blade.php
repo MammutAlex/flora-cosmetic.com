@@ -103,9 +103,9 @@
                         </div>
                         <div class="cart-content">
                             <h5>
-                                <a href="/products/{{$product->product->id}}">
-                                    {{$product->product->title}}<br>
-                                    {{$product->product['config_'.$product->config_id]}}
+                                <a href="/products/{{$buy->product->id}}">
+                                    {{$buy->product->title}}<br>
+                                    {{$buy->product['config_'.$buy->config_id]}}
                                 </a>
                             </h5>
                             <p>

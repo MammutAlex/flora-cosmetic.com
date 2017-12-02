@@ -20,5 +20,6 @@ Route::get('/payments-and-deliveries', 'WebController@delivery')->name('delivery
 Route::get('/contacts', 'WebController@contacts')->name('contacts');
 Route::get('/categories/{categories}/{subcategories?}', 'WebController@categories')->name('categories');
 Route::get('/cart', 'BasketController@cart')->name('cart');
+Route::post('/cart', 'BasketController@checkCart')->name('cart');
 
 Auth::routes();

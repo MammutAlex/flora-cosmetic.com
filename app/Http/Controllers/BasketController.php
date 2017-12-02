@@ -6,6 +6,7 @@ use App\Basket;
 use App\Buy;
 use App\Product;
 use Illuminate\Http\Request;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class BasketController extends WebController
 {
@@ -14,6 +15,30 @@ class BasketController extends WebController
     public function cart()
     {
         return view('cart', ['basket' => $this->getBasket()]);
+    }
+
+    public function checkCart(Request $request)
+    {
+        $this->validate($request, [
+            'phone' => 'required|string|min:17|max:17',
+            'name' => 'required|string',
+        ]);
+        $backet = $this->getBasket();
+        $backet->update([
+            'phone' => $request->phone,
+            'name' => $request->name,
+            'comment' => $request->comment,
+            'send' => new \DateTime(),
+        ]);
+        Telegram::sendMessage([
+            'chat_id' => '-276563552',
+            'parse_mode' => 'HTML',
+            'text' => view('telegram.check', [
+                'backet' => $backet
+            ])->render(),
+        ]);
+        session()->forget('basket');
+        return redirect()->back()->with('success', 'Ваше замовлення прийнято, ми зателефонуємо вам');
     }
 
     public function buy(Product $products, Request $request)

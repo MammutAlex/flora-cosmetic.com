@@ -169,6 +169,7 @@ return [
          */
         SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,7 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
+        'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class
     ],
 
 ];

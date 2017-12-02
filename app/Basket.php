@@ -12,4 +12,13 @@ class Basket extends Model
     {
         return $this->hasMany(Buy::class);
     }
+
+    public function getPriceAttribute()
+    {
+        $price = 0;
+        foreach ($this->buys as $buy) {
+            $price += $buy->product['price_' . $buy->config_id] * $buy->amount;
+        }
+        return $price;
+    }
 }
