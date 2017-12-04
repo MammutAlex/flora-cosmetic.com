@@ -30,13 +30,7 @@ class BasketController extends WebController
             'comment' => $request->comment,
             'send' => new \DateTime(),
         ]);
-        Telegram::sendMessage([
-            'chat_id' => '-276563552',
-            'parse_mode' => 'HTML',
-            'text' => view('telegram.check', [
-                'backet' => $backet
-            ])->render(),
-        ]);
+        $this->sendToTelegram($backet);
         session()->forget('basket');
         return redirect()->back()->with('success', 'Ваше замовлення прийнято, ми зателефонуємо вам');
     }
@@ -69,6 +63,7 @@ class BasketController extends WebController
             'product_id' => $products->id,
             'config_id' => $request->config,
         ]);
+        $this->sendToTelegram($basket);
         return redirect()->back()->with('success', 'Ваше замовлення прийнято, ми зателефонуємо вам');
     }
 
@@ -96,6 +91,17 @@ class BasketController extends WebController
         }
         return Basket::create();
 
+    }
+
+    private function sendToTelegram(Basket $basket)
+    {
+        Telegram::sendMessage([
+            'chat_id' => '-276563552',
+            'parse_mode' => 'HTML',
+            'text' => view('telegram.check', [
+                'backet' => $basket
+            ])->render(),
+        ]);
     }
 
 }
