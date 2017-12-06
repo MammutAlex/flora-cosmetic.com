@@ -12,16 +12,16 @@ class ContactsTableSeeder extends Seeder
     public function run()
     {
         \App\Contact::create([
-            'text' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+            'text' => 'Звоните, пишите, с радостью отвечу на Ваши вопросы'
         ]);
         \App\Contact::create([
-            'text' => '124, Munna Wali Dhani, Lalchandpura, Niwaru Road, Jhotwara, Jaipur, Rajsthan, 302012'
+            'text' => '+380 66 524-69-02'
         ]);
         \App\Contact::create([
-            'text' => 'Telephone: 1800.123.4534'
+            'text' => '+380 96 019-27-57'
         ]);
         \App\Contact::create([
-            'text' => 'Fax: 1800.123.4534'
+            'text' => 'info@flora-cosmetic.com'
         ]);
     }
 }
