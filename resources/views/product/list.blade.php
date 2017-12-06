@@ -33,7 +33,7 @@
                             <div class="media shop-list-media">
                                 <div class="media-left">
                                     <a href="/products/{{$product->id}}">
-                                        <img src="{{$product->photo}}" alt="{{$product->title}}" class="img-responsive">
+                                        <img src="/{{$product->photo}}" alt="{{$product->title}}" class="img-responsive">
                                     </a>
                                 </div><!--/thumb-->
                                 <div class="media-body">

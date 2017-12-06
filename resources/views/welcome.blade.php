@@ -12,7 +12,7 @@
                 <!-- slide 1 -->
                     <div class="ms-slide slide-1" data-delay="8">
                         <!-- slide background -->
-                        <img src="plugins/masterslider/style/blank.gif" data-src="{{$slide->photo}}"
+                        <img src="plugins/masterslider/style/blank.gif" data-src="/{{$slide->photo}}"
                              alt="{{$slide->title}}"/>
                         <h3 class="ms-layer full-width title1 white-color text-center"
                             style="left:0px;top: 180px;"
@@ -33,7 +33,7 @@
                     <div class="ms-slide slide-2" data-delay="6">
 
                         <!-- slide background -->
-                        <img src="plugins/masterslider/style/blank.gif" data-src="{{$slide->photo}}"
+                        <img src="plugins/masterslider/style/blank.gif" data-src="/{{$slide->photo}}"
                              alt="{{$slide->title}}"/>
                         <h3 class="ms-layer full-width title1 text-center"
                             style="left:0px;top: 90px;"
@@ -53,7 +53,7 @@
                 <!-- slide 3 -->
                     <div class="ms-slide slide-3" data-delay="8">
                         <!-- slide background -->
-                        <img src="plugins/masterslider/style/blank.gif" data-src="{{$slide->photo}}"
+                        <img src="plugins/masterslider/style/blank.gif" data-src="/{{$slide->photo}}"
                              alt="{{$slide->title}}"/>
                         <h3 class="ms-layer title1 text-left"
                             style="left:15px;top: 190px;"
@@ -81,7 +81,7 @@
             @foreach($lastProducts as $product)
                 <div class="col-sm-4 margin-b-30">
                     <a class="image-box" href="/products/{{$product->id}}">
-                        <img src="{{$product->photo}}" alt="{{$product->title}}" class="img-responsive">
+                        <img src="/{{$product->photo}}" alt="{{$product->title}}" class="img-responsive">
                         <div class="img-overlay">
                             <h1>{{$product->title}}</h1>
                         </div>
@@ -97,7 +97,7 @@
             @foreach($categories as $category)
                 <div class="item">
                     <a class="category-box" href="/categories/{{$category->url}}">
-                        <img src="{{$category->photo}}" alt="{{$category->name}}" class="img-responsive">
+                        <img src="/{{$category->photo}}" alt="{{$category->name}}" class="img-responsive">
                         <div class="category-text">
                             <h4 class="text-uppercase">{{$category->name}}</h4>
                         </div>

@@ -26,7 +26,7 @@
                     @foreach($basket->buys as $product)
                         <tr>
                             <td class="item-thumb">
-                                <img src="{{$product->product->photo}}" alt="{{$product->product->title}}" width="90">
+                                <img src="/{{$product->product->photo}}" alt="{{$product->product->title}}" width="90">
                             </td>
                             <td class="item-name">
                                 <h4>

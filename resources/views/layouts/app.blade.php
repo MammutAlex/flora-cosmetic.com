@@ -97,7 +97,7 @@
                     <li class="clearfix">
                         <div class="cart-thumb">
                             <a href="/products/{{$buy->product->id}}">
-                                <img src="{{$buy->product->photo}}" alt="{{$buy->product->title}}"
+                                <img src="/{{$buy->product->photo}}" alt="{{$buy->product->title}}"
                                      class="img-responsive" width="60">
                             </a>
                         </div>
@@ -148,7 +148,7 @@
                         <li class="clearfix">
                             <div class="pull-left">
                                 <a href="/products/{{$product->id}}">
-                                    <img src="{{$product->photo}}" alt="{{$product->title}}" width="50"
+                                    <img src="/{{$product->photo}}" alt="{{$product->title}}" width="50"
                                          class="img-responsive">
                                 </a>
                             </div>
