@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\View;
 
 class BaseController extends Controller
 {
-    private $basket = false;
     public function __construct()
     {
         View::share('categories', Category::get());
