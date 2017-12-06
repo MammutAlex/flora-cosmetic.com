@@ -5,9 +5,11 @@ use SleepingOwl\Admin\Navigation\Page;
 return [
     [
         'title' => 'Dashboard',
-        'icon'  => 'fa fa-dashboard',
-        'url'   => route('admin.dashboard'),
+        'icon' => 'fa fa-dashboard',
+        'url' => route('admin.dashboard'),
     ],
+    (new Page(\App\Basket::class))
+        ->setPriority(100),
     [
         'title' => 'Продукти',
         'icon' => 'fa fa-cubes',
@@ -29,7 +31,9 @@ return [
             (new Page(\App\Contact::class))
                 ->setPriority(100),
             (new Page(\App\Slider::class))
-                ->setPriority(200)
+                ->setPriority(200),
+            (new Page(\App\Review::class))
+                ->setPriority(300)
         ]
     ],
 ];

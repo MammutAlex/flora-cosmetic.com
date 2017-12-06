@@ -62,6 +62,7 @@ class BasketController extends WebController
             'basket_id' => $basket->id,
             'product_id' => $products->id,
             'config_id' => $request->config,
+            'amount' => 1
         ]);
         $this->sendToTelegram($basket);
         return redirect()->back()->with('success', 'Ваше замовлення прийнято, ми зателефонуємо вам');
