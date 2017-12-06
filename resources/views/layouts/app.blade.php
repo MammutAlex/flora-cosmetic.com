@@ -139,6 +139,7 @@
                 </p>
                 <ul class="list-inline socials">
                     <li><a href="https://www.facebook.com/flora.naturalcosm"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/flora.naturalcosm"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div><!--/col-->
             <div class="col-md-3 margin-b-30">
