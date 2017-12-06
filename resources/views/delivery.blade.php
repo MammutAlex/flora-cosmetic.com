@@ -4,7 +4,7 @@
     <!--page header-->
     <div class="page-breadcrumb margin-b-60">
         <div class="container">
-            <h4>Доставка та оплата</h4>
+            <h4>Доставка и оплата</h4>
         </div>
     </div>
     <!--page header-->
