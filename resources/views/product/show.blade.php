@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('title',$active->title)
+@section('meta')
+    <meta name="description" content="{{$product->small_description}}">
+@endsection
 @section('content')
     <div class="space-60"></div>
-    <div class="container">
+    <div class="container" itemscope itemtype="http://schema.org/Product">
         <div class="row">
             <div class="col-sm-7 margin-b-40">
                 <!-- master slider template -->
@@ -12,7 +15,7 @@
                         <div class="ms-slide">
                             <img src="/plugins/masterslider/style/blank.gif" data-src="/{{$active->photo}}"
                                  alt="{{$active->title}}"/>
-                            <img class="ms-thumb" src="/{{$active->photo}}" alt="thumb"/>
+                            <img itemprop="image" class="ms-thumb" src="/{{$active->photo}}" alt="thumb"/>
                         </div>
                         @foreach($active->images as $image)
                             <div class="ms-slide">
@@ -27,9 +30,11 @@
             </div>
             <div class="col-sm-5">
                 <div class="item-description">
-                    <h3>{{$active->title}}</h3>
-                    <span class="price text-primary">&#8372;{{$active->price_1}}</span>
-                    <p>{!! $active->description !!}</p>
+                    <h3 itemprop="name">{{$active->title}}</h3>
+                    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <span class="price text-primary" itemprop="price">&#8372;{{$active->price_1}}</span>
+                    </span>
+                    <p itemprop="description">{!! $active->description !!}</p>
                     <hr>
                     <form role="form" id="buy-form" method="POST" action="{{ route('product',$active->id) }}">
                         {{ csrf_field() }}
@@ -91,7 +96,8 @@
                             <img src="/{{$product->photo}}" alt="" class="img-responsive">
                             <div class="product-overlay">
                                 <span>
-                                    <a class="btn btn-default" href="/products/{{$product->id}}">Посмотреть подробнее</a>
+                                    <a class="btn btn-default"
+                                       href="/products/{{$product->id}}">Посмотреть подробнее</a>
                                 </span>
                             </div>
                         </div><!--/product-thumb-->
