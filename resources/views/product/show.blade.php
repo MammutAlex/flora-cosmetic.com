@@ -2,7 +2,7 @@
 
 @section('title',$active->title)
 @section('meta')
-    <meta name="description" content="{{$product->small_description}}">
+    <meta name="description" content="{{$active->small_description}}">
 @endsection
 @section('content')
     <div class="space-60"></div>
