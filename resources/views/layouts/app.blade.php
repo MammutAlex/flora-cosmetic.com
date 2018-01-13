@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') Флора косметика</title>
-    <link rel="shortcut icon" href="/favicon2.png" type="image/png">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
 
     <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
