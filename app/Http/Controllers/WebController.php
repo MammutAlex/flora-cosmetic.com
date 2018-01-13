@@ -17,7 +17,7 @@ class WebController extends BaseController
     {
         return view('welcome', [
             'products' => Product::inRandomOrder()->take(8)->get(),
-            'reviews' => Review::get(),
+            'reviews' => Review::inRandomOrder()->get(),
             'slides' => Slider::get(),
         ]);
     }
