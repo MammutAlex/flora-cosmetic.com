@@ -11,7 +11,7 @@ class BaseController extends Controller
 {
     public function __construct()
     {
-        View::share('categories', Category::get());
+        View::share('categories', Category::orderBy('order')->get());
         View::share('lastProducts', Product::orderBy('id', 'desc')->take(3)->get());
         $this->middleware(function ($request, $next) {
             if (session()->has('basket')) {

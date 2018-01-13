@@ -7,18 +7,13 @@
  */
 
 use SleepingOwl\Admin\Model\ModelConfiguration;
+use SleepingOwl\Admin\Display\Tree\OrderTreeType;
 
 AdminSection::registerModel(\App\Category::class, function (ModelConfiguration $model) {
     $model->setTitle('Категорії');
     // Display
     $model->onDisplay(function () {
-        $display = AdminDisplay::table();
-        $display->setColumns([
-            AdminColumn::image('photo')->setLabel('Фото'),
-            AdminColumn::text('name')->setLabel('Назва'),
-            AdminColumn::text('url')->setLabel('Посилання')
-        ]);
-        return $display;
+        return AdminDisplay::tree(OrderTreeType::class)->setValue('name');
     });
     // Create And Edit
     $model->onCreateAndEdit(function () {
