@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title','Главная')
+@section('meta')
+    <meta name="description" content="Натуральная косметика ручной работы, готовится индивидуально, из природных компонентов, бережно ухаживает за кожей и волосами. Попробуйте, чтоб убедились сами! С любовью, ФЛОРА">
+@endsection
 @section('content')
     <!--start master slider-->
     <div class="clearfix"></div>

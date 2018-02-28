@@ -10,9 +10,8 @@ $(document).ready(function () {
             $(this).removeClass('open');
         });
     }
-    ;
 // site preloader
-    $(window).load(function () {
+    $(window).on('load',function () {
         $('#preloader').fadeOut('slow', function () {
             $(this).remove();
         });
@@ -88,7 +87,7 @@ $(document).ready(function () {
         var $button = $(this);
         var oldValue = $button.parent().find('.quantity').val();
         $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
-        if ($button.data('action') == "increase") {
+        if ($button.data('action') === "increase") {
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below 1

@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
             foreach (Storage::allFiles() as $file) {
                 app(OptimizerChain::class)->optimize(public_path('uploads/' . $file));
             }
-        })->at('01:00');
+        });
     }
 
     /**
