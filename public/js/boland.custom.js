@@ -1,9 +1,6 @@
-
-
 $(document).ready(function () {
     //dropdwon on hover for dessktop
-    if ($(".navbar").width() > 1007)
-    {
+    if ($(".navbar").width() > 1007) {
         $('.nav .dropdown').hover(function () {
             $(this).addClass('open');
         }, function () {
@@ -11,10 +8,8 @@ $(document).ready(function () {
         });
     }
 // site preloader
-    $(window).on('load',function () {
-        $('#preloader').fadeOut('slow', function () {
-            $(this).remove();
-        });
+    $('#preloader').fadeOut('slow', function () {
+        $(this).remove();
     });
     //back to top
     //Check to see if the window is top if not then display button
@@ -41,38 +36,38 @@ $(document).ready(function () {
         event.stopPropagation();
     });
     //product slider
-   $('.product-slider').owlCarousel({
-    loop:true,
-    margin:0,
-    nav:false,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:3
+    $('.product-slider').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 3
+            }
         }
-    }
-});
- $('.testi-slider').owlCarousel({
-    loop:true,
-    margin:0,
-    nav:false,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
+    });
+    $('.testi-slider').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
         }
-    }
-});
+    });
     $('input.icheck').iCheck({
         checkboxClass: 'icheckbox_minimal-blue',
         radioClass: 'iradio_minimal-blue',
