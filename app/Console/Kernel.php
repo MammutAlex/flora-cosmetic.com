@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Storage;
 use Spatie\ImageOptimizer\OptimizerChain;
 
 class Kernel extends ConsoleKernel
@@ -28,7 +29,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('backup:clean')->daily()->at('01:00');
         $schedule->command('backup:run')->daily()->at('02:00');
         $schedule->call(function () {
-            app(OptimizerChain::class)->optimize(public_path('uploads'));
+            foreach (Storage::allFiles() as $file) {
+                app(OptimizerChain::class)->optimize(public_path('uploads/' . $file));
+            }
         });
     }
 
