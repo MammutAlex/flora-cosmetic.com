@@ -22,7 +22,7 @@
     <link href="/plugins/masterslider/style/masterslider.css" rel="stylesheet">
     <link href="/plugins/masterslider/skins/default/style.css" rel='stylesheet'>
     <!--template css-->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -213,15 +213,7 @@
     </div>
 </footer>
 <!--/footer-->
-<script src="/plugins/jquery/dist/jquery.min.js"></script>
-<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="/plugins/pace/pace.min.js"></script>
-<script src="/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
-<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
-<script src="/plugins/sticky/jquery.sticky.js"></script>
-<script src="/plugins/icheck/icheck.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
-<script src="/js/boland.custom.js"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 
 @yield('script')
 </body>
