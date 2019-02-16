@@ -22,7 +22,7 @@ AdminSection::registerModel(\App\Delivery::class, function (ModelConfiguration $
     // Create And Edit
     $model->onCreateAndEdit(function () {
         $form = AdminForm::panel()->addBody(
-            AdminFormElement::text('name', 'Назва')->required(),
+            AdminFormElement::text('title', 'Назва')->required(),
             AdminFormElement::wysiwyg('text', 'Текст')->required()
         );
         return $form;
