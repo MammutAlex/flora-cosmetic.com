@@ -8,7 +8,7 @@ class Category extends Model
 {
     public function products()
     {
-        return $this->hasManyThrough(Product::class, SubCategory::class);
+        return $this->hasManyThrough(Product::class, SubCategory::class)->where('show', true);
     }
 
     public function subcategories()

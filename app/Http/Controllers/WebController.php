@@ -16,7 +16,7 @@ class WebController extends BaseController
     public function index()
     {
         return view('welcome', [
-            'products' => Product::inRandomOrder()->take(8)->get(),
+            'products' => Product::where('show', true)->inRandomOrder()->take(8)->get(),
             'reviews' => Review::inRandomOrder()->get(),
             'slides' => Slider::get(),
         ]);
