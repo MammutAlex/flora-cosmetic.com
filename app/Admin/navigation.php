@@ -19,6 +19,8 @@ return [
             (new Page(\App\SubCategory::class))
                 ->setPriority(0),
             (new Page(\App\Product::class))
+                ->setPriority(100),
+            (new Page(\App\ProductSort::class))
                 ->setPriority(100)
         ]
     ],
